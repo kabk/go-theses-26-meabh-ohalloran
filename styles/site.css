@@ -144,3 +144,73 @@ marquee {
   height: 250px;
   filter: brightness(120%);
 }
+
+/* =========================
+MOBILE LAYOUT
+========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-y: auto;
+  }
+
+  /* remove two-column layout */
+  .left-panel,
+  .right-panel {
+    position: relative;
+    width: 100vw;
+    height: auto;
+  }
+
+  /* make the screen-time video the background */
+  #background {
+    display: none;
+  }
+
+  #scrollVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* text container sits on top of the video */
+  .right-panel {
+    position: relative;
+    background: transparent;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* resize the arch for mobile */
+  .text-frame {
+    width: 85vw;
+    height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-top: 80px;
+    padding: 60px 20px 30px 20px;
+    border-radius: 200px 200px 0 0;
+    background: white;
+  }
+
+  /* make text easier to read on phone */
+  .text-frame p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  /* hide extra floating gifs if needed */
+  .fly,
+  .dove,
+  .dove1 {
+    display: none;
+  }
+
+}
