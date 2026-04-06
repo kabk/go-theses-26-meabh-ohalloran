@@ -1,20 +1,15 @@
-gsap.registerPlugin(ScrollTrigger);
+const video = document.getElementById("scrollVideo");
 
-window.addEventListener("load", () => {
-  const video = document.getElementById("scrollVideo");
-
-  video.addEventListener("loadedmetadata", () => {
-
-    gsap.to(video, {
-      currentTime: video.duration,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".text-frame",   // scroll area
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true
-      }
-    });
-
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      video.play();
+    } else {
+      video.pause();
+    }
   });
+}, {
+  threshold: 0.5 // play when 50% visible
 });
+
+observer.observe(video);

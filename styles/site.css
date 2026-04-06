@@ -57,23 +57,34 @@ RIGHT PANEL
   top: 0;
   width: 50vw;
   height: 100vh;
-  background: white;
+  background: rgba(255, 255, 255, 0);
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-/* this is the frame AND the scroll area */
 .text-frame {
   width: 75%;
-  height: 80vh;           /* critical */
-  overflow-y: scroll;      /* critical */
-  border: 4px solid #8b8b8b;
-  border-radius: 450px 450px 0 0;
-  padding: 80px 25px 40px 25px;
+  height: 80vh;
   margin-top: 90px;
-  box-sizing: border-box;
+  position: relative;
 }
+
+.arch-mask {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  padding: 30px 25px 40px 25px;
+  box-sizing: border-box;
+  background: white;
+
+  border: 4px solid #8b8b8b;
+  border-radius: 50% 50% 0 0;
+}
+
+
+
 
 .text-frame p {
   font-size: 16px;
@@ -88,7 +99,11 @@ RIGHT PANEL
   font-size: 16px;
   line-height: 1;
   color: #8b8b8b;
-}
+
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
 
 .bible-text p {
   margin-bottom: 2em;
@@ -106,28 +121,7 @@ FLOATING ELEMENTS
    height: 30px;
 }
 
-.dove1 {
-  position: absolute;
-  top: 15%;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 2;
-}
 
-.dove {
-  position: absolute;
-  top: 0;
-  left: 70%;
-  width: 100px;
-  height: 100%;
-  z-index: 10;
-}
-
-marquee {
-  width: 100%;
-  height: 100%;
-}
 
 .cloud1 {
   position: fixed;
