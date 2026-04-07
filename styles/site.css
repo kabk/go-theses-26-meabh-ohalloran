@@ -10,15 +10,7 @@ html, body {
   overflow-y: auto;
 }
 
-header {
-  width: 100%;
-  padding: 20px;
-  color: white;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
+
 
 .text h1 {
   font-size: clamp(1.5rem, 4vw, 3rem);
@@ -101,10 +93,9 @@ LEFT PANEL
   left: 0;
   width: 100%;
   height: 100%;
-  transform: scaleX(-1);
   object-fit: fill;
-  filter: brightness(1.5) contrast(0.9) saturate(1.2);
-  z-index: 0;
+  filter: brightness(140%);
+    z-index: 0;
 }
 
 
@@ -149,23 +140,19 @@ LEFT PANEL
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  width: 100vw;       /* slightly wider */
-  max-width: 750px;  /* allow bigger width on large screens */
-  max-height: 74vh;  /* slightly shorter */
+  width: 100vw;
+  max-width: 750px;
+  height: 74vh;
   padding: 50px 40px 30px 40px;  
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.925);
-
-  border-radius: 420px 420px 0 0;
-  box-shadow: none;
-
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-
-  border: 5px solid rgb(255, 255, 255);
-  border-radius: 420px 420px 0 0;
-  background-clip: padding-box; /* ensures border doesn’t overlap content */
-
+  background: rgb(255, 255, 255);
+  border-radius: 370px 370px 0 0;
+    box-shadow: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: none;
+  background-clip: padding-box;
+  box-sizing: border-box;
 }
 
 /* White overlay covering entire screen */
@@ -223,7 +210,7 @@ LEFT PANEL
 .click a {
   color: #8b8b8b;
   font-size: 60pt;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: block;
   text-decoration: none;
   transition: opacity 0.5s ease;
@@ -240,9 +227,9 @@ LEFT PANEL
   padding-top: 20%;
   font-size: 22px;
   line-height: 1.4;
-  color: #000000;
+  color: #8b8b8b;  
   position: relative;
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   max-width: 620px;   /* 👈 controls text column width */
   margin: 0 auto;     /* 👈 centers text inside the frame */
 }
@@ -267,6 +254,25 @@ h1{
   text-align: center;
 font-size: 70px;
 
+}
+
+/* -------------------------
+INDEX PAGE
+------------------------- */
+.white-mask {
+  position: fixed;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 74vh;
+  border-radius: 370px 370px 0 0;
+  z-index: 2;
+  box-shadow: 0 0 0 100vmax white;
+  pointer-events: none;
+}
+#flash-link {
+  transition: opacity 0.5s ease;
 }
 
 
@@ -298,6 +304,10 @@ FLOATING ELEMENTS
   z-index: 10;
   filter: brightness(120%);
 }
+
+
+
+
 
 /* =========================
 MOBILE LAYOUT

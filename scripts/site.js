@@ -1,18 +1,37 @@
 const video = document.getElementById("scrollVideo");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      video.play();
-    } else {
-      video.pause();
-    }
+if (video) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: 0.5
   });
-}, {
-  threshold: 0.5 // play when 50% visible
-});
 
-observer.observe(video);
+  observer.observe(video);
+
+  const savedTime = localStorage.getItem("videoTime");
+  if (savedTime) {
+    const t = parseFloat(savedTime);
+    localStorage.removeItem("videoTime");
+
+    const seek = () => {
+      video.currentTime = t;
+      video.play();
+    };
+
+    if (video.readyState >= 2) {
+      seek();
+    } else {
+      video.addEventListener("canplay", seek, { once: true });
+    }
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const sentences = [
@@ -23,22 +42,36 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const link = document.getElementById("flash-link");
-  if (!link) return; // safety check
+  if (link) {
+    let index = 0;
 
-  let index = 0;
+    function showNextSentence() {
+      link.style.opacity = 0;
+      setTimeout(() => {
+        link.textContent = sentences[index];
+        link.style.opacity = 1;
+        index = (index + 1) % sentences.length;
+      }, 500);
+    }
 
-  function showNextSentence() {
-    // fade out
-    link.style.opacity = 0;
+    showNextSentence();
+    setInterval(showNextSentence, 2500);
 
-    setTimeout(() => {
-      link.textContent = sentences[index]; // update text
-      link.style.opacity = 1;              // fade in
-      index = (index + 1) % sentences.length; // next sentence
-    }, 500); // matches CSS fade duration
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const v = document.getElementById("scrollVideo");
+      if (v) localStorage.setItem("videoTime", v.currentTime);
+      window.location.href = link.href;
+    });
   }
 
-  // start immediately
-  showNextSentence();
-  setInterval(showNextSentence, 2500);
+  const backLink = document.getElementById("back-link");
+  if (backLink) {
+    backLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      const v = document.getElementById("scrollVideo");
+      if (v) localStorage.setItem("videoTime", v.currentTime);
+      window.location.href = backLink.href;
+    });
+  }
 });
