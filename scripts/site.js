@@ -19,12 +19,10 @@ if (video) {
   if (savedTime) {
     const t = parseFloat(savedTime);
     localStorage.removeItem("videoTime");
-
     const seek = () => {
       video.currentTime = t;
       video.play();
     };
-
     if (video.readyState >= 2) {
       seek();
     } else {
@@ -61,7 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const v = document.getElementById("scrollVideo");
       if (v) localStorage.setItem("videoTime", v.currentTime);
-      window.location.href = link.href;
+      document.body.style.transition = "opacity 0.8s ease";
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 800);
     });
   }
 
@@ -71,7 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const v = document.getElementById("scrollVideo");
       if (v) localStorage.setItem("videoTime", v.currentTime);
-      window.location.href = backLink.href;
+      document.body.style.transition = "opacity 0.8s ease";
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = backLink.href;
+      }, 800);
     });
   }
 });

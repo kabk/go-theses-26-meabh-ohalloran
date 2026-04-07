@@ -39,7 +39,7 @@ img {
 
 .click a:link,
 .click a:visited {
-  color: #8b8b8b;
+  color: #ffffff;
 }
 
 .click a:hover {
@@ -275,6 +275,17 @@ INDEX PAGE
   transition: opacity 0.5s ease;
 }
 
+/* -------------------------
+PAGE TRANSITIONS
+------------------------- */
+body {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 /* -------------------------
 FLOATING ELEMENTS
