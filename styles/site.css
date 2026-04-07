@@ -6,9 +6,70 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+header {
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.text h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.text p {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.click {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 18;
+  color: #8b8b8b;
+  font-size: 60pt;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.click a:link,
+.click a:visited {
+  color: #8b8b8b;
+}
+
+.click a:hover {
+  color: #00ffff;
+}
+
+.wing1 {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  top: 40%;
+  left: 65%;
+}
+
+.wing2 {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  top: 40%;
+  left: 16%;
+  transform: scaleX(-1);
+}
 /* -------------------------
 LEFT PANEL
 ------------------------- */
@@ -22,93 +83,192 @@ LEFT PANEL
   z-index: 0;
 }
 
-#background {
+#scrollVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  z-index: 1;
+  pointer-events: none;
+  filter: brightness(140%);
+}
+
+.background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill; /* compress/distort */
+  transform: scaleX(-1);
+  object-fit: fill;
   filter: brightness(1.5) contrast(0.9) saturate(1.2);
-  z-index: 1;
+  z-index: 0;
 }
 
-#scrollVideo {
+
+/*
+.arch-blur-top {
+  position: fixed;
+  top: 9vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 600px;
+  height: 180px;
+  border-radius: 300px 300px 0 0;
+  overflow: hidden;
+  background-color: hotpink;
+
+  -webkit-mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    transparent 50%,
+    black 68%,
+    transparent 90%
+  );
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    transparent 50%,
+    black 68%,
+    transparent 90%
+  );
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  pointer-events: none;
+  z-index: 21;
+}
+*/
+
+
+.text-frame {
+  position: fixed;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 100vw;       /* slightly wider */
+  max-width: 750px;  /* allow bigger width on large screens */
+  max-height: 74vh;  /* slightly shorter */
+  padding: 50px 40px 30px 40px;  
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.925);
+
+  border-radius: 420px 420px 0 0;
+  box-shadow: none;
+
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+
+  border: 5px solid rgb(255, 255, 255);
+  border-radius: 420px 420px 0 0;
+  background-clip: padding-box; /* ensures border doesn’t overlap content */
+
+}
+
+/* White overlay covering entire screen */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* The arch showing the video inside */
+.arch-video {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  height: 74vh;
+  border-radius: 420px 420px 0 0;
+  overflow: hidden;
+  box-shadow: none;
+
+  /* Clip the video to the arch shape */
+  clip-path: polygon(
+    0% 100%, 
+    0% 20%, 
+    50% 0%, 
+    100% 20%, 
+    100% 100%
+  );
+}
+
+/* Video inside the arch */
+.arch-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Flashing text */
+.click {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: auto;
-  filter: brightness(140%) ;
-  z-index: 5;
-  pointer-events: none;
-  z-index: 5; /* between background (1) and birds default (10) */
-  transition: opacity 0.2s ease-in-out; /* optional for subtle fade if needed */
-  
+  z-index: 30;
+  text-align: center;
 }
 
-/* -------------------------
-RIGHT PANEL
-------------------------- */
-.right-panel {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 50vw;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.text-frame {
-  width: 75%;
-  height: 80vh;
-  margin-top: 90px;
-  position: relative;
-}
-
-.arch-mask {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-
-  padding: 30px 25px 40px 25px;
-  box-sizing: border-box;
-  background: white;
-
-  border: 4px solid #8b8b8b;
-  border-radius: 50% 50% 0 0;
-}
-
-
-
-
-.text-frame p {
-  font-size: 16px;
-  line-height: 1.2;
+.click a {
   color: #8b8b8b;
-  margin-bottom: 2em;
-  text-align: justify;
+  font-size: 60pt;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  display: block;
+  text-decoration: none;
+  transition: opacity 0.5s ease;
+  pointer-events: auto;
+  opacity: 1;
 }
 
-/* just the text styling */
+
+.text-frame::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
 .bible-text {
-  font-size: 16px;
-  line-height: 1;
-  color: #8b8b8b;
-
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
+  padding-top: 20%;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #000000;
+  position: relative;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  max-width: 620px;   /* 👈 controls text column width */
+  margin: 0 auto;     /* 👈 centers text inside the frame */
+}
 
 .bible-text p {
   margin-bottom: 2em;
+
   text-align: justify;
+  line-height: 1.4;
 }
+
+.bible-text section p:last-of-type {
+  margin-bottom: 5em;
+}
+
+
+.bible-text section:last-of-type p:last-of-type {
+  margin-bottom: 0em;
+}
+
+h1{
+  text-align: center;
+font-size: 70px;
+
+}
+
 
 /* -------------------------
 FLOATING ELEMENTS
@@ -118,16 +278,15 @@ FLOATING ELEMENTS
   top: 45%;
   left: 151%;
   z-index: 10;
-   height: 30px;
+  height: 30px;
 }
-
-
 
 .cloud1 {
   position: fixed;
   top: 10px;
   left: 20px;
   height: 250px;
+  z-index: 10;
   filter: brightness(160%);
 }
 
@@ -136,6 +295,7 @@ FLOATING ELEMENTS
   top: 140px;
   left: 1200px;
   height: 250px;
+  z-index: 10;
   filter: brightness(120%);
 }
 
@@ -148,7 +308,6 @@ MOBILE LAYOUT
     overflow-y: auto;
   }
 
-  /* remove two-column layout */
   .left-panel,
   .right-panel {
     position: relative;
@@ -156,8 +315,11 @@ MOBILE LAYOUT
     height: auto;
   }
 
-  /* make the screen-time video the background */
   #background {
+    display: none;
+  }
+
+  #background2 {
     display: none;
   }
 
@@ -166,13 +328,12 @@ MOBILE LAYOUT
     top: 0;
     left: 0;
     transform: none;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: 0;
   }
 
-  /* text container sits on top of the video */
   .right-panel {
     position: relative;
     background: transparent;
@@ -182,7 +343,6 @@ MOBILE LAYOUT
     align-items: flex-start;
   }
 
-  /* resize the arch for mobile */
   .text-frame {
     width: 85vw;
     height: auto;
@@ -190,17 +350,14 @@ MOBILE LAYOUT
     overflow-y: auto;
     margin-top: 80px;
     padding: 60px 20px 30px 20px;
-    border-radius: 200px 200px 0 0;
-    background: white;
+    border-radius: 300px 300px 0 0;
   }
 
-  /* make text easier to read on phone */
   .text-frame p {
     font-size: 15px;
     line-height: 1.4;
   }
 
-  /* hide extra floating gifs if needed */
   .fly,
   .dove,
   .dove1 {
