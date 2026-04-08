@@ -84,40 +84,6 @@ LEFT PANEL
 }
 
 
-/*
-.arch-blur-top {
-  position: fixed;
-  top: 9vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw;
-  max-width: 600px;
-  height: 180px;
-  border-radius: 300px 300px 0 0;
-  overflow: hidden;
-  background-color: hotpink;
-
-  -webkit-mask-image: radial-gradient(
-    ellipse 100% 100% at 50% 0%,
-    transparent 50%,
-    black 68%,
-    transparent 90%
-  );
-  mask-image: radial-gradient(
-    ellipse 100% 100% at 50% 0%,
-    transparent 50%,
-    black 68%,
-    transparent 90%
-  );
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  pointer-events: none;
-  z-index: 21;
-}
-*/
-
 
 .text-frame {
   position: fixed;
@@ -132,6 +98,8 @@ LEFT PANEL
   overflow-y: auto;
   background: #ffffff;
   border-radius: 370px 370px 0 0;
+  box-shadow: 0 0 80px 40px rgba(255, 255, 255, 0.9);
+
   box-shadow: none;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -335,6 +303,12 @@ MOBILE LAYOUT
     padding: 40px 20px 30px 20px;
     border-radius: 300px 300px 0 0;
     box-sizing: border-box;
+  }
+
+  .text-frame h1 {
+    font-size: 28px;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .text-frame p {
