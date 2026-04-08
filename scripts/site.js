@@ -33,10 +33,10 @@ if (video) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const sentences = [
-    "Unclaiming all bad energy!",
-    "Claiming good energy.",
-    "Claim x 4.",
-    "Claim with good energy only."
+    "CLICK to unclaim all bad energy!",
+    "CLICK to claim good energy.",
+    "CLICK x 4.",
+    "CLICK with good energy only."
   ];
 
   const link = document.getElementById("flash-link");

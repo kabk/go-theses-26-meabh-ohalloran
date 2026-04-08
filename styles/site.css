@@ -232,6 +232,44 @@ INDEX PAGE
 }
 
 /* -------------------------
+CLICK BACKGROUND
+------------------------- */
+.click-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.click-lines {
+  width: 100%;
+  text-align: center;
+}
+
+.click-line {
+  display: block;
+  font-size: 48px;
+  font-weight: bold;
+  color: #3a5fa0;
+  font-family: serif;
+  border-bottom: 3px solid #3a5fa0;
+  padding: 8px 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.click-line.visible {
+  opacity: 1;
+}
+
+/* -------------------------
 PAGE TRANSITIONS
 ------------------------- */
 body {
@@ -352,11 +390,15 @@ MOBILE LAYOUT
   }
 
   .bible-text section:last-of-type p:last-of-type {
-    margin-bottom: 15em;
+    margin-bottom: 1em;
   }
 
   .end-image {
-    margin-top: 1em;
+    margin-top: 0.5em;
+  }
+
+  .click-line {
+    font-size: 28px;
   }
 
   .white-mask {
