@@ -286,10 +286,24 @@ MOBILE LAYOUT
     overflow-y: auto;
   }
 
+
+  h1 {
+    font-size: 36px;
+    word-break: break-word;
+  }
+  
   .bible-text {
     max-width: 100%;
     padding: 0;
+    font-size: 16px;
   }
+  
+  .text-frame {
+    overflow-x: hidden;
+    width: 90vw;
+    padding: 40px 20px 30px 20px;
+  }
+
 
   .text-frame {
     overflow-x: hidden;
