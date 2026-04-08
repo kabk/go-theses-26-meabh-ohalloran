@@ -194,6 +194,12 @@ LEFT PANEL
   line-height: 1.4;
 }
 
+.bible-text i {
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+
 .bible-text section p:last-of-type {
   margin-bottom: 5em;
 }
