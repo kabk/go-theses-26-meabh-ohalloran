@@ -145,7 +145,7 @@ LEFT PANEL
   height: 74vh;
   padding: 50px 40px 30px 40px;  
   overflow-y: auto;
-  background: rgb(255, 255, 255);
+  background: #ffffff;
   border-radius: 370px 370px 0 0;
     box-shadow: none;
   scrollbar-width: none;
@@ -287,34 +287,6 @@ body {
   to { opacity: 1; }
 }
 
-/* -------------------------
-FLOATING ELEMENTS
-------------------------- */
-.fly img {
-  position: absolute;
-  top: 45%;
-  left: 151%;
-  z-index: 10;
-  height: 30px;
-}
-
-.cloud1 {
-  position: fixed;
-  top: 10px;
-  left: 20px;
-  height: 250px;
-  z-index: 10;
-  filter: brightness(160%);
-}
-
-.cloud2 {
-  position: fixed;
-  top: 140px;
-  left: 1200px;
-  height: 250px;
-  z-index: 10;
-  filter: brightness(120%);
-}
 
 
 
