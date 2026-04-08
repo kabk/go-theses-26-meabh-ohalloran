@@ -37,6 +37,8 @@ img {
 .click a:link,
 .click a:visited {
   color: #00ffff;
+  font-size: 130pt;
+
 }
 
 .click a:hover {
