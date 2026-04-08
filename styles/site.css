@@ -50,6 +50,14 @@ img {
   margin: 0 auto 1em auto;
 }
 
+.end-image {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
 /* -------------------------
 LEFT PANEL
 ------------------------- */
@@ -195,7 +203,7 @@ LEFT PANEL
 }
 
 .bible-text section:last-of-type p:last-of-type {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 h1 {
