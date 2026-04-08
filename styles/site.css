@@ -54,7 +54,7 @@ img {
   display: block;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 3em auto 0 auto;
   padding: 0;
 }
 
@@ -353,6 +353,10 @@ MOBILE LAYOUT
 
   .bible-text section:last-of-type p:last-of-type {
     margin-bottom: 15em;
+  }
+
+  .end-image {
+    margin-top: 1em;
   }
 
   .white-mask {
