@@ -329,6 +329,15 @@ MOBILE LAYOUT
     overflow-y: auto;
   }
 
+  .bible-text {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .text-frame {
+    overflow-x: hidden;
+  }
+  
   .left-panel,
   .right-panel {
     position: relative;
