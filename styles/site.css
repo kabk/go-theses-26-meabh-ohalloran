@@ -10,8 +10,6 @@ html, body {
   overflow-y: auto;
 }
 
-
-
 .text h1 {
   font-size: clamp(1.5rem, 4vw, 3rem);
 }
@@ -39,13 +37,18 @@ img {
 .click a:link,
 .click a:visited {
   color: #ffffff;
-
 }
 
 .click a:hover {
   color: #00ffff;
 }
 
+.section-title-img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 1em auto;
+}
 
 /* -------------------------
 LEFT PANEL
@@ -80,10 +83,8 @@ LEFT PANEL
   height: 100%;
   object-fit: fill;
   filter: brightness(140%);
-    z-index: 0;
+  z-index: 0;
 }
-
-
 
 .text-frame {
   position: fixed;
@@ -94,13 +95,11 @@ LEFT PANEL
   width: 100vw;
   max-width: 750px;
   height: 74vh;
-  padding: 50px 40px 30px 40px;  
+  padding: 50px 40px 30px 40px;
   overflow-y: auto;
   background: #ffffff;
   border-radius: 370px 370px 0 0;
   box-shadow: 0 0 80px 40px rgba(255, 255, 255, 0.9);
-
-  box-shadow: none;
   scrollbar-width: none;
   -ms-overflow-style: none;
   border: none;
@@ -108,7 +107,6 @@ LEFT PANEL
   box-sizing: border-box;
 }
 
-/* White overlay covering entire screen */
 .overlay {
   position: fixed;
   top: 0;
@@ -123,7 +121,6 @@ LEFT PANEL
   overflow: hidden;
 }
 
-/* The arch showing the video inside */
 .arch-video {
   position: relative;
   width: 100%;
@@ -132,25 +129,21 @@ LEFT PANEL
   border-radius: 420px 420px 0 0;
   overflow: hidden;
   box-shadow: none;
-
-  /* Clip the video to the arch shape */
   clip-path: polygon(
-    0% 100%, 
-    0% 20%, 
-    50% 0%, 
-    100% 20%, 
+    0% 100%,
+    0% 20%,
+    50% 0%,
+    100% 20%,
     100% 100%
   );
 }
 
-/* Video inside the arch */
 .arch-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Flashing text */
 .click {
   position: absolute;
   top: 50%;
@@ -163,7 +156,7 @@ LEFT PANEL
 .click a {
   color: #8b8b8b;
   font-size: 60pt;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: block;
   text-decoration: none;
   transition: opacity 0.5s ease;
@@ -171,25 +164,23 @@ LEFT PANEL
   opacity: 1;
 }
 
-
 .text-frame::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .bible-text {
-  padding-top: 20%;
+  padding-top: 10%;
   font-size: 22px;
   line-height: 1.4;
-  color: #8b8b8b;  
+  color: #8b8b8b;
   position: relative;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  max-width: 620px;   /* 👈 controls text column width */
-  margin: 0 auto;     /* 👈 centers text inside the frame */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 .bible-text p {
-  margin-bottom: 2em;
-
+  margin-bottom: 1em;
   text-align: justify;
   line-height: 1.4;
 }
@@ -199,20 +190,17 @@ LEFT PANEL
   text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
-
 .bible-text section p:last-of-type {
   margin-bottom: 5em;
 }
-
 
 .bible-text section:last-of-type p:last-of-type {
   margin-bottom: 0em;
 }
 
-h1{
+h1 {
   text-align: center;
-font-size: 70px;
-
+  font-size: 70px;
 }
 
 /* -------------------------
@@ -230,6 +218,7 @@ INDEX PAGE
   box-shadow: 0 0 0 100vmax white;
   pointer-events: none;
 }
+
 #flash-link {
   transition: opacity 0.5s ease;
 }
@@ -246,10 +235,34 @@ body {
   to { opacity: 1; }
 }
 
+/* -------------------------
+FLOATING ELEMENTS
+------------------------- */
+.fly img {
+  position: absolute;
+  top: 45%;
+  left: 151%;
+  z-index: 10;
+  height: 30px;
+}
 
+.cloud1 {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  height: 250px;
+  z-index: 10;
+  filter: brightness(160%);
+}
 
-
-
+.cloud2 {
+  position: fixed;
+  top: 140px;
+  left: 1200px;
+  height: 250px;
+  z-index: 10;
+  filter: brightness(120%);
+}
 
 /* =========================
 MOBILE LAYOUT
@@ -305,10 +318,12 @@ MOBILE LAYOUT
     max-height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 40px 20px 30px 20px;
     border-radius: 300px 300px 0 0;
     box-sizing: border-box;
+    position: fixed;
+    top: 44%;
   }
 
   .text-frame h1 {
@@ -330,13 +345,6 @@ MOBILE LAYOUT
 
   .bible-text section:last-of-type p:last-of-type {
     margin-bottom: 15em;
-  }
-  
-  .text-frame {
-    margin-top: 40px;
-    margin-bottom: 0;
-    position: fixed;
-    top: 44%;
   }
 
   .white-mask {
