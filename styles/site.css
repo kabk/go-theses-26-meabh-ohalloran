@@ -328,6 +328,17 @@ MOBILE LAYOUT
     font-size: 16px;
   }
 
+  .bible-text section:last-of-type p:last-of-type {
+    margin-bottom: 15em;
+  }
+  
+  .text-frame {
+    margin-top: 40px;
+    margin-bottom: 0;
+    position: fixed;
+    top: 44%;
+  }
+
   .white-mask {
     width: 100vw;
     height: 100vh;
@@ -343,9 +354,7 @@ MOBILE LAYOUT
     width: 90vw;
   }
 
-  .fly,
-  .dove,
-  .dove1 {
+  #back-link {
     display: none;
   }
 
