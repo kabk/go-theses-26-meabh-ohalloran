@@ -31,8 +31,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 18;
-  color: #8b8b8b;
-  font-size: 60pt;
+  font-size: 100pt;
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -40,28 +39,14 @@ img {
 .click a:link,
 .click a:visited {
   color: #ffffff;
+
 }
 
 .click a:hover {
   color: #00ffff;
 }
 
-.wing1 {
-  position: fixed;
-  z-index: 10;
-  pointer-events: none;
-  top: 40%;
-  left: 65%;
-}
 
-.wing2 {
-  position: fixed;
-  z-index: 10;
-  pointer-events: none;
-  top: 40%;
-  left: 16%;
-  transform: scaleX(-1);
-}
 /* -------------------------
 LEFT PANEL
 ------------------------- */
@@ -147,7 +132,7 @@ LEFT PANEL
   overflow-y: auto;
   background: #ffffff;
   border-radius: 370px 370px 0 0;
-    box-shadow: none;
+  box-shadow: none;
   scrollbar-width: none;
   -ms-overflow-style: none;
   border: none;
@@ -162,7 +147,7 @@ LEFT PANEL
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: rgb(255, 255, 255);
   z-index: 20;
   display: flex;
   justify-content: center;
