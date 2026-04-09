@@ -443,6 +443,10 @@ MOBILE LAYOUT
     width: 90vw;
   }
 
+  .click a {
+    font-size: 30pt;
+  }
+
   #back-link {
     display: none;
   }
