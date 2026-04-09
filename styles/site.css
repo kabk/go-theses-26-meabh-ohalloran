@@ -37,8 +37,6 @@ img {
 .click a:link,
 .click a:visited {
   color: #00ffff;
-  font-size: 130pt;
-
 }
 
 .click a:hover {
@@ -165,7 +163,7 @@ LEFT PANEL
 
 .click a {
   color: #00ffff;
-  font-size: 60pt;
+  font-size: 130pt;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: block;
   text-decoration: none;
@@ -425,7 +423,16 @@ MOBILE LAYOUT
   }
 
   .click-line {
-    font-size: 28px;
+    font-size: 20px;
+  }
+
+  .click {
+    font-size: 20pt;
+    width: 90vw;
+  }
+
+  .click a {
+    font-size: 20pt;
   }
 
   .white-mask {
@@ -436,15 +443,6 @@ MOBILE LAYOUT
     transform: none;
     border-radius: 0;
     box-shadow: none;
-  }
-
-  .click {
-    font-size: 30pt;
-    width: 90vw;
-  }
-
-  .click a {
-    font-size: 30pt;
   }
 
   #back-link {
